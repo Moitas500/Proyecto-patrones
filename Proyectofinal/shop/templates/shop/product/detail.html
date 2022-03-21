@@ -6,16 +6,25 @@
 {% endblock %}
 
 {% block content %}
-    <div class="product-detail">
-    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'shop/img/no_image.png' %}{% endif %}">
-    <h1>{{ product.name }}</h1>
-    <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
-    <p class="price">${{ product.price }}</p>
-    <form action="{% url "cart:cart_add" product.id %}" method="post">
-      {{ cart_product_form }}
-      {% csrf_token %}
-      <input type="submit" value="Add to cart">
-    </form>
-      {{ product.description|linebreaks }}
-     </div>
+<div class="product-detail mx-auto col-10">
+    <h5><a href="{{ product.categoria.get_absolute_url }}">{{ product.categoria }}</a></h2>
+      <div class="card" style="width: 80%; height: 20rem;">
+        <h1 class="card-title">{{ product.nombre }}</h1>
+        {% load thumbnail %}
+        {% if product.imagen %}
+        {% thumbnail product.imagen '100x200' as im %}
+                            <img src="{{ im.url }}">
+        {% endthumbnail %}
+        {% endif %}
+
+        {% comment %} <img  src="{% if product.imagen %}{{ product.imagen.url }}{% else %}{% static 'shop/img/no_image.png' %}{% endif %}"> {% endcomment %}
+        <p class="precio">${{ product.precio }}</p>
+        <form action="{% url "cart:cart_add" product.id %}" method="post">
+          {{ cart_product_form }}
+          {% csrf_token %}
+          <input type="submit" value="Agregar al carrito">
+        </form>
+        {{ product.descripcion|linebreaks }}
+      </div>
+    </div>
 {% endblock %}

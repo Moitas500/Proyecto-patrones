@@ -1,3 +1,4 @@
+from email.mime import image
 from django.contrib import admin
 
 from .models import Category, Product
@@ -6,19 +7,21 @@ from .models import Category, Product
 # Register your models here.
 
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug']
-    prepopulated_fields = {'slug': ('name',)}
+    icon_name = 'layers'
+    list_display = ['nombre', 'descripcion']
+    prepopulated_fields = {'descripcion': ('nombre',)}
 
 
 admin.site.register(Category, CategoryAdmin)
 
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ['name', 'slug', 'price', 'stock', 'available', 'created',
+    icon_name = 'shopping_cart'
+    list_display = ['nombre', 'descripcion', 'precio', 'existencia', 'disponible', 'created',
                     'updated']
-    list_filter = ['available', 'created', 'updated']
-    list_editable = ['price', 'stock', 'available']
-    prepopulated_fields = {'slug': ('name',)}
+    list_filter = ['disponible', 'created', 'updated']
+    list_editable = ['precio', 'existencia', 'disponible']
+    prepopulated_fields = {'descripcion': ('nombre',)}
 
 
 admin.site.register(Product, ProductAdmin)
