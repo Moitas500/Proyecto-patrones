@@ -11,16 +11,25 @@
  
 	  {# CSS Bootstrap #}
 	  {% bootstrap_css %}
-    
+
+    {% comment %} <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script> {% endcomment %}
+    <link href="{% static 'fontawesome_free/css/all.min.css' %}" rel="stylesheet" type="text/css">
+    <script src="{% static 'fontawesome_free/js/all.min.js' %}"></script>
+
     {% comment %} <link href="{% static "shop/css/base.css" %}" rel="stylesheet"> {% endcomment %}
   </head>
   <body>
-    <div id="header">
-      <a href="/" class="logo">Mi tienda</a>
-    </div>
-    <div id="subheader">
-      <div class="cart">Tu carro esta vacio.</div>
-    </div>
+    <nav class="navbar navbar-dark bg-primary" id="header">
+      <a href="/" class="logo navbar-brand mb-0 h1" style='font-size: 1.8rem'>Yovi</a>
+      
+      <button class="btn btn-link" type="button" style="padding: 0px;" >
+        <a href="/cart" class="nav-link" >
+          <span class="fas fa-shopping-cart fa-2x" style='color: white'> </span>
+        </a>
+
+      </button>
+    </nav >
+
     <div id="content">{% block content %} {% endblock %}</div>
     
     {% bootstrap_javascript jquery='full' %}

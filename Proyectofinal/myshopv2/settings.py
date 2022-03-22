@@ -35,7 +35,7 @@ CART_SESSION_ID = 'cart'
 INSTALLED_APPS = [
     'material',
     'material.admin',
-    # 'django.contrib.admin',
+    'fontawesome-free',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -43,8 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap4',
     'shop',
-    'sorl.thumbnail'
-    , 'cart'
+    'sorl.thumbnail',
+    'cart'
 ]
 
 MIDDLEWARE = [

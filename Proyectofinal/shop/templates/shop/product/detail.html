@@ -8,12 +8,12 @@
 {% block content %}
 <div class="product-detail mx-auto col-10">
     <h5><a href="{{ product.categoria.get_absolute_url }}">{{ product.categoria }}</a></h2>
-      <div class="card" style="width: 80%; height: 20rem;">
-        <h1 class="card-title">{{ product.nombre }}</h1>
+      <div  style="width: 95%; height: 15rem;">
+        <h1 >{{ product.nombre }}</h1>
         {% load thumbnail %}
         {% if product.imagen %}
-        {% thumbnail product.imagen '100x200' as im %}
-                            <img src="{{ im.url }}">
+        {% thumbnail product.imagen '300x200' as im %}
+                            <img  src="{{ im.url }}">
         {% endthumbnail %}
         {% endif %}
 

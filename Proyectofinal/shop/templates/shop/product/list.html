@@ -6,19 +6,22 @@
 {% endblock %}
 
 {% block content %}
-<div class="row" style="width: 100%;">
+<div class="mx-auto row" style="width: 95%;">
     <div id="sidebar" class="col-2">
-        <h3>Categorias</h3>
-        <ul>
-            <li {% if not category %}class="selected"{% endif %}>
-                <a href="{% url "shop:product_list" %}">Todos</a>
-            </li>
+
+        <div class="list-group" >
+            <div class="list-group-item list-group-item-linkable" data-link="http://www.google.com">
+            <h3 class="list-group-item-heading">Categorias</h3>
+            <a class="list-group-item list-group-item-action" role="tab" href="{% url "shop:product_list" %}">Todos</a>
+
             {% for c in categories %}
-                <li {% if category.descripcion == c.descripcion %}class="selected"{% endif %}>
-                    <a href="{{ c.get_absolute_url }}">{{ c.nombre }}</a>
-                </li>
+                <a class="list-group-item list-group-item-action selected" href="{{ c.get_absolute_url }}"  role="tab">{{ c.nombre }}
+                    <a class="selected" href="{{ c.get_absolute_url }}" >
+                </a>
+            </a>
             {% endfor %}
-        </ul>
+            </div>
+        </div>
     </div>
 
     <div class="product-list col-10">
