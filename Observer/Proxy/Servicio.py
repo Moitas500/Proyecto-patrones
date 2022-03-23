@@ -2,7 +2,7 @@ from ServicioLogin import ServicioLogin
 
 class Servicio(ServicioLogin):
     
-    def request(self, nombre, contraseña, rol) -> None:
+    def request(self, nombre, passw, rol) -> None:
         self.nombre = nombre
-        self.contraseña = contraseña
+        self.passw = passw
         self.rol = rol

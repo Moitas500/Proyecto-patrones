@@ -5,9 +5,9 @@ class Cliente(Usuario, IHandler):
     nombre = ""
     apellido = ""
 
-    def __init__(self, nombre, contraseña):
+    def __init__(self, nombre, passw):
         self.nombre = nombre
-        self.contraseña = contraseña
+        self.passw = passw
 
     def operaciones(self):
         return("Puede comprar productos")

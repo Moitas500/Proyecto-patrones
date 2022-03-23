@@ -32,9 +32,9 @@ if __name__ == "__main__":
     """
     servicio = Servicio()
     
-    servicio.request(usuario.nombre, usuario.contraseña, admin.rol)
+    servicio.request(usuario.nombre, usuario.passw, admin.rol)
     
     proxy = Proxy(servicio)
 
-    proxy.request(servicio.nombre, servicio.contraseña, servicio.rol)
+    proxy.request(servicio.nombre, servicio.passw, servicio.rol)
 
