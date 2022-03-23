@@ -4,10 +4,9 @@ from Comandos import Eliminar
 
 if __name__ == "__main__":
     ordenAgregar = Agregar()
-    ordenEliminar = Eliminar()
-    
     invoker = Invoker(ordenAgregar)
     invoker.run()
 
+    ordenEliminar = Eliminar()
     invoker = Invoker(ordenEliminar)
     invoker.run()
