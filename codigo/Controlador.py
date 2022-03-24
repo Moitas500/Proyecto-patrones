@@ -1,22 +1,26 @@
-from msilib.schema import Class
-from tabnanny import check
-from weakref import proxy
-from Observer.BaseDatos import BaseDeDatos
-from Observer.Proxy import Proxy
-from Observer.Servicio import Servicio
-
+from BD.BaseDatos import BaseDeDatos
+from Command.Comandos import Agregar
+from Command.Invoker import Invoker
+from Proxy.Proxy import Proxy
+from Decorator.UserGeneral import Usuario
+from codigo.Command.Comandos import Eliminar
 
 class Controlador():
     def __init__(self)-> None:
-        __bd = BaseDeDatos()
+        self._bd = BaseDeDatos()
+        self.user = Usuario()
+        self.invoker = Invoker()
         
-        _con = __bd.connect('db.sqlite3')
-        _cur = _con.cursor()
+    def ingresoUsuario(self, nombre, passw):
+        __auth = Proxy(self.user)
+        self.user = __auth.request(self._bd, nombre, passw)
+
+    def clickAgregar(self):
+        ordenAgregar = Agregar()
+        self.invoker = Invoker(ordenAgregar)
+        self.invoker.run()
         
-    def ingresoUsuario(nombre, passw, self):
-        __auth = Proxy()
-        
-        __auth.verificarLogin(self.__bd, nombre, passw, '')
-        
-    def clickN():
-        
+    def clickEliminar(self):
+        ordenEliminar = Eliminar()
+        self.invoker = Invoker(ordenEliminar)
+        self.invoker.run()
