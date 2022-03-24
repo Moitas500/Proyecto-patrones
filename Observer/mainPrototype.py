@@ -10,5 +10,5 @@ if __name__ == "__main__":
     print(producto1)
     producto2 = producto1.clone()
     print(producto2)
-    producto2.nombre = "perro"
+    producto2.precio = 2000
     print(producto2)
